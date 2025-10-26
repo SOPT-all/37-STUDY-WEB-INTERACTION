@@ -13,7 +13,7 @@
 <br/>
 
 ## 🧙🏻‍♀️ 스터디원
-<div align="center">
+<div>
 
 | <img src="https://github.com/jisooooooooooo.png" width="150"> | <img src="https://github.com/eojindesu.png" width="150"> | <img src="https://github.com/yooncandooit.png" width="150"> |
 |:---:|:---:|:---:|
@@ -22,7 +22,7 @@
 
 </div>
 
-<div align="center">
+<div>
 
 | <img src="https://github.com/hummingbbird.png" width="150"> | <img src="https://github.com/verynicetomato.png" width="150"> | <img src="https://github.com/twossu.png" width="150"> |
 |:---:|:---:|:---:|
