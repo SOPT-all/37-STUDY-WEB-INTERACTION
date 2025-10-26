@@ -54,6 +54,31 @@
 
 <br/>
 
+## 🗂️ 폴더 구조
+```
+📦 37-STUDY-WEB-INTERACTION
+┣ 📂 jisoo
+┃ ┣ 📂 week1
+┃ ┣ 📂 week2
+┃ ┗ 📂 week3 …
+┣ 📂 eojin
+┃ ┣ 📂 week1
+┃ ┗ 📂 week2 …
+┣ 📂 yoonji
+┃ ┣ 📂 week1
+┃ ┗ 📂 week2 …
+┣ 📂 chaeyoung
+┃ ┣ 📂 week1
+┃ ┗ 📂 week2 …
+┣ 📂 jooyoung
+┃ ┣ 📂 week1
+┃ ┗ 📂 week2 …
+┗ 📂 yunha
+┃ ┣ 📂 week1
+┃ ┗ 📂 week2 …
+```
+<br/>
+
 ## 🗓️ 일정 및 커리큘럼
 
 | 주차 | 날짜 | 주제 |
