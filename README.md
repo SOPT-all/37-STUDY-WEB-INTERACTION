@@ -27,7 +27,7 @@
 | <img src="https://github.com/hummingbbird.png" width="150"> | <img src="https://github.com/verynicetomato.png" width="150"> | <img src="https://github.com/twossu.png" width="150"> |
 |:---:|:---:|:---:|
 | **채영** | **주영** | **윤하** |
-| [@hummingbbird](https://github.com/hummingbbbird) | [@verynicetomato](https://github.com/verynicetomato) | [@twossu](https://github.com/twossu) |
+| [@hummingbbird](https://github.com/hummingbbird) | [@verynicetomato](https://github.com/verynicetomato) | [@twossu](https://github.com/twossu) |
 
 </div>
 
