@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3-3_layout-01_float.html</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="01_float.css" />
+  </head>
+
+  <body>
+    <main class="main">
+      <h1 class="heading_1">Float</h1>
+      <ul class="layout_float clearfix">
+        <!-- tailwind 같은 방식으로 스타일을 지정해주는군 -->
+        <li class="item large count">
+          <img
+            src="../../../img/unsplash/item_05.png"
+            alt="손하트 이모지"
+            aria-describedby="item_05"
+          />
+          <div id="item_05" class="sr-only">
+            손으로 하트를 하고 있는 캐릭터 이모지
+          </div>
+        </li>
+        <li class="item">
+          <ul class="item_wrap clearfix">
+            <li class="item count">
+              <img
+                src="../../../img/unsplash/item_06.png"
+                alt="손으로 전화기 표시를 하고 있는 캐릭터 이모지"
+              />
+            </li>
+            <li class="item count">
+              <img
+                src="../../../img/unsplash/item_07.png"
+                alt="손가락 하트를 하고 흐뭇하게 웃고 있는 캐릭터 이모지"
+              />
+            </li>
+          </ul>
+        </li>
+        <li class="item large count">
+          <img
+            src="../../../img/unsplash/item_08.png"
+            alt="왼손을 사용해 소개하는 제스처를 취하는 캐릭터 이모지"
+          />
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
