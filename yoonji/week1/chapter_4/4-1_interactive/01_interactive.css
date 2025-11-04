@@ -17,3 +17,18 @@ main {
   padding: 50px;
   background-color: gray;
 }
+
+.image_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  background: url('../../../img/unsplash/kid.jpg') no-repeat 50% bottom/cover; /* 배경 이미지의 위치 / 크기 구분용 슬래시 */
+  border: 2px solid seashell;
+  overflow: hidden;
+  transition: background-position var(--duration);
+}
