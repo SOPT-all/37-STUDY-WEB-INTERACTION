@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+:root {
+  --duration: 800ms;
+  --delay: 300ms;
+  /* bezier: 시간에 따르는 속도 */
+  --bezier: cubic-bezier(0.25, 0.1, 0.27, 0.54);
+}
+
+main {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.container {
+  margin: 50px auto 0;
+  padding: 50px;
+  background-color: gray;
+}
