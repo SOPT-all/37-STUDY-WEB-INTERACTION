@@ -12,6 +12,9 @@ main {
   margin: 30px auto;
 }
 
+.heading_1 {
+  text-align: center;
+}
 .container {
   margin: 50px auto 0;
   padding: 50px;
@@ -84,7 +87,7 @@ main {
 }
 
 .image_wrap:hover::before {
-  transform: translateY(0); /* 호버 시 가상 요소가 화면 안으로 들어옴 */
+  transform: translateY(0%); /* 호버 시 가상 요소가 화면 안으로 들어옴 */
 }
 
 .image_wrap:hover .title,
