@@ -47,7 +47,7 @@ main {
   transition-timing-function: var(--bezier); /* ease-in-out 보다 더 세밀함 */
 }
 
-.image_wrap .text {
+.image_wrap .texts {
   position: relative; /* z-index 적용을 위해 필요 */
   z-index: 2; /* 가상 요소보다 위에 존재 */
   padding: 50px 20px 50px 50px; /* 상하좌우 여백을 통해 텍스트가 길어지더라
@@ -75,4 +75,19 @@ main {
   opacity: 0;
   transition: opacity var(--duration);
   transition-delay: var(--delay);
+}
+
+/* 현재까지는 opacity가 0이기 때문에 보이지 않음 */
+
+.image_wrap:hover {
+  background-position: 100% bottom; /* 호버 시 배경 이미지 위치 변경 */
+}
+
+.image_wrap:hover::before {
+  transform: translateY(0); /* 호버 시 가상 요소가 화면 안으로 들어옴 */
+}
+
+.image_wrap:hover .title,
+.image_wrap:hover .details {
+  opacity: 1; /* 호버 시 텍스트가 서서히 나타남 */
 }
