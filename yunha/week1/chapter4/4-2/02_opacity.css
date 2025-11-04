@@ -23,6 +23,16 @@ body {
   background-color: var(--bg-color);
 }
 
+main {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.heading_1 {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   max-width: 1024px;
   margin: 30px auto;

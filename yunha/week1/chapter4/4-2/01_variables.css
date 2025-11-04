@@ -21,6 +21,16 @@ body {
   color: var(--text-color2, black);
 }
 
+main {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.heading_1 {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   max-width: 1024px;
   margin: var(--margin-size-50) auto;

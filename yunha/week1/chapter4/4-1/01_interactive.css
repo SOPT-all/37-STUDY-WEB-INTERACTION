@@ -31,7 +31,8 @@ main {
   width: 400px;
   height: 500px;
   margin: 0 auto;
-  background: url("./zombi.jpg") no-repeat 50% bottom / cover; /* background는 축약형(위치, 크기, 반복 작성가능) */
+  background: url("../../../bublic/image/item1.jpg") no-repeat 50% bottom /
+    cover; /* background는 축약형(위치, 크기, 반복 작성가능) */
   border: 2px solid seashell;
   overflow: hidden;
   transition: background-position var(--duraction);

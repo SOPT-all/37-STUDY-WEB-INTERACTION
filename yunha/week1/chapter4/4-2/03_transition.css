@@ -69,19 +69,24 @@ body {
 }
 
 .ease {
-  transition-timing-function: ease;
+  transition-timing-function: ease; /* 느리게 빠르게 느리게 */
 }
 
 .ease-in {
-  transition-timing-function: ease-in;
+  transition-timing-function: ease-in; /* 느리게 속도가 점점 빨라짐 */
 }
 
 .ease-out {
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-out; /* 빠르게 느리게 */
 }
 
 .cubic {
-  transition-timing-function: cubic-bezier(0.91, 0.45, 0.14, 0.69);
+  transition-timing-function: cubic-bezier(
+    0.91,
+    0.45,
+    0.14,
+    0.69
+  ); /* 속도 커스텀 */
 }
 
 [data-transition] {

@@ -17,6 +17,16 @@ body {
   background-color: var(--bg-color);
 }
 
+main {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.heading_1 {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -44,16 +54,19 @@ body {
   transition: background-color var(--duration), color var(--duration);
 }
 
+/* 가져다 댄 상태 */
 .container li[data-type="hover"] button:hover {
   color: var(--hover-color);
   background-color: var(--hover-bg-color);
 }
 
+/* 클릭 */
 .container li[data-type="focus"] button:focus {
   color: var(--focus-color);
   background-color: var(--focus-bg-color);
 }
 
+/* 꾹 누르고 있는 상태 */
 .container li[data-type="active"] button:active {
   color: var(--active-color);
   background-color: var(--active-bg-color);
