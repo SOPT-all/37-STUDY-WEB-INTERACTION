@@ -9,7 +9,7 @@
   margin: 50px auto;
 }
 
-/* circle animation */
+/* 원형 */
 @keyframes circleAnimation {
   from {
     r: 10;
@@ -25,7 +25,7 @@
   animation: circleAnimation 2s infinite alternate;
 }
 
-/* rect animation */
+/* 사각형 */
 @keyframes rectAnimation {
   from {
     transform: rotate(0deg);
@@ -42,7 +42,7 @@
   animation: rectAnimation 2s infinite alternate-reverse ease-in;
 }
 
-/* linear gradient */
+/* 선으로 별만들기 */
 @keyframes startGradientAnimation {
   0% {
     stop-color: red;
@@ -90,7 +90,7 @@
   animation: rotate 2s infinite alternate cubic-bezier(0.63, 0.26, 0.21, 0.72);
 }
 
-/* mask animation */
+/* 사각형 안에 원형 구멍 */
 @keyframes maskAnimation {
   0% {
     r: 20;
@@ -107,7 +107,7 @@
   animation: maskAnimation 2s infinite;
 }
 
-/* path animation */
+/* 선 */
 @keyframes lineAnimation {
   to {
     stroke-dashoffset: 0;

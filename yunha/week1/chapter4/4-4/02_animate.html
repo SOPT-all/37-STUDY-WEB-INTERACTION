@@ -12,6 +12,8 @@
       <h1 class="heading_1">SVG</h1>
       <svg width="100" height="100">
         <circle cx="40" cy="40" r="20" fill="blue">
+          <!--2초동안 반지름 30으로 커졌다가 원상태 10으로 돌아옴 -->
+          <!--indefinte는 반복 속성-->
           <animate
             attributeName="r"
             from="10"
@@ -24,6 +26,7 @@
 
       <svg width="100" height="100">
         <circle cx="40" cy="40" r="20" fill="blue">
+          <!-- 10에서 30으로 커졌다가 다시 10으로 작아짐-->
           <animate
             attributeName="r"
             values="10;30;10"
@@ -35,6 +38,7 @@
 
       <svg width="100" height="100">
         <rect x="10" y="10" width="30" height="30" fill="red">
+          <!--freeze는 마지막 상태로 유지하는것-->
           <animateTransform
             attributeName="transform"
             type="rotate"
@@ -50,6 +54,7 @@
       </svg>
 
       <svg width="200" height="200">
+        <!--id 참조값으로 두 태그를 연결할 수 있음-->
         <path
           id="motionFollowPath"
           d="M10 80 Q 95 10 180 80"
@@ -87,11 +92,13 @@
             calcMode="spline"
             keySplines="0.4 0 0.6 1;0.4 0 0.6 1"
           >
+            <!--복잡한 타이밍을 사용하고 싶으면 keySplines 속성 사용-->
             <mpath href="#motionFollowPath" />
           </animateMotion>
         </rect>
       </svg>
 
+      <!--set태그는 특정 시점에 변경되어야하는 애니메이션에 사용됨-->
       <svg width="300" height="200">
         <rect x="20" y="20" width="60" height="60" fill="red">
           <set
