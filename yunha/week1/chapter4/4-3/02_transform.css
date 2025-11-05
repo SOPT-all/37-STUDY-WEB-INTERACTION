@@ -25,9 +25,9 @@ body {
 }
 
 .card {
-  flex: 1 1 150px;
+  flex: 1 1 150px; /* flex-grow(성장) flex-shrink(수축) flex-basis(기본 크기) */
   height: 240px;
-  perspective: 1000px;
+  perspective: 1000px; /* 원근감 속성 */
   cursor: pointer;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .card_front {
-  background-position: center center;
+  background-position: center center; /* 수평위치, 수직위치 */
   background-size: cover;
   filter: sepia(0.8);
 }

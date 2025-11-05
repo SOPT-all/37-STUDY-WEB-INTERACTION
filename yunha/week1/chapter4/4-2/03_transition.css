@@ -89,6 +89,7 @@ body {
   ); /* 속도 커스텀 */
 }
 
+/* 특정 속성을 대괄호로 지정할 수 있다. */
 [data-transition] {
   transition-duration: var(--duration);
   transition-property: all;
@@ -111,6 +112,7 @@ body {
 }
 
 .opacity.active [data-transition] {
+  /* 활성화된 상태 */
   opacity: 1;
 }
 
