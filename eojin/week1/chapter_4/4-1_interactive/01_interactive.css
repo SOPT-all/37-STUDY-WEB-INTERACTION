@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* transition이나 animation의 지속 시간, 지연 시간, 시간에 따르는 속도를
+일정하게 관리하기 위해 루트 요소에 정의 */
+:root {
+  --duration: 800ms;
+  --delay: 300ms;
+  --bezier: cubic-bezier(
+    0.25,
+    0.1,
+    0.27,
+    0.54
+  ); /* 애니메이션의 속도 변화 커스터마이징 */
+  margin: 30px auto;
+}
+
+.heading_1 {
+  margin-top: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.container {
+  margin: 50px auto 0;
+  padding: 50px;
+  background-color: gray;
+}
+
+.image_wrap {
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: flex-end; /* 세로 하단 정렬 */
+  position: relative; /* 내부 요소들이 absolute 속성으로 되었을 때, 절대 위치 요소의 기준점 역할 */
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  background: url('img/swimming.jpg') no-repeat 50% bottom / cover; /* 배경 이미지의 위치 / 크기를 한번에 지정 */
+  border: 2px solid rgb(199, 255, 225);
+  overflow: hidden;
+  transition: background-position var(--duration);
+}
+
+.image_wrap::before {
+  content: ''; /* 가상 요소를 생성하기 위한 필수 속성 */
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(100%);
+  transition: transform var(--duration);
+  transition-timing-function: var(--bezier); /* 애니메이션의 속도와 흐름 제어 */
+}
+
+.image_wrap .texts {
+  position: relative;
+  z-index: 2; /* 텍스트가 가장 위에 배치되도록 설정 */
+  padding: 50px 20px 50px 50px;
+  text-align: right;
+}
+
+.image_wrap .title {
+  display: block;
+  font-size: 28px;
+  color: aliceblue;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--duration);
+}
+
+.image_wrap .details {
+  margin-top: 20px;
+  font-size: 14px;
+  word-break: keep-all; /* 단어 단위로 줄바꿈 */
+  line-height: 1.4;
+  color: white;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--duration);
+  transition-delay: var(--delay);
+}
+
+/* hover */
+.image_wrap:hover {
+  background-position: 100% bottom;
+}
+
+.image_wrap:hover::before {
+  transform: translateY(0);
+}
+
+.image_wrap:hover .title,
+.image_wrap:hover .details {
+  opacity: 1;
+}
