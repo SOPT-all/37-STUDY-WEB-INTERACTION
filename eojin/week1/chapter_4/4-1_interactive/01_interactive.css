@@ -35,7 +35,7 @@
   width: 400px;
   height: 500px;
   margin: 0 auto;
-  background: url('img/swimming.jpg') no-repeat 50% bottom / cover; /* 배경 이미지의 위치 / 크기를 한번에 지정 */
+  background: url('../img/swimming.jpg') no-repeat 50% bottom / cover; /* 배경 이미지의 위치 / 크기를 한번에 지정 */
   border: 2px solid rgb(199, 255, 225);
   overflow: hidden;
   transition: background-position var(--duration);
