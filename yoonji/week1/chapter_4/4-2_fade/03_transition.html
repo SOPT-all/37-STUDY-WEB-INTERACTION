@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter4-2</title>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./03_transition.css" />
+    <script>
+      function toggleActive(e) {
+        // 해당 버튼의 두 단계 상위 요소(parentElement)를 거슬러 올라가 active 클래스를 토글(추가/제거)하는 기능
+        const $currentArticle = e.currentTarget.parentElement.parentElement;
+        $currentArticle.classList.toggle("active");
+      }
+    </script>
+  </head>
+  <body>
+    <section class="container">
+      <h2>Transition Examples</h2>
+      <article class="opacity">
+        <div class="head">
+          <h3>opacity</h3>
+          <button onclick="toggleActive(event)">Active</button>
+        </div>
+        <div>
+          <span class="ease" data-transition>ease</span>
+          <span class="ease-in" data-transition>ease-in</span>
+          <span class="ease-out" data-transition>ease-out</span>
+          <span class="cubic" data-transition>bezier</span>
+        </div>
+      </article>
+      <article class="translate">
+        <div class="head">
+          <h3>transform - translate</h3>
+          <button onclick="toggleActive(event)">Active</button>
+        </div>
+        <div class="body">
+          <span class="ease" data-transition>ease</span>
+          <span class="ease-in" data-transition>ease-in</span>
+          <span class="ease-out" data-transition>ease-out</span>
+          <span class="cubic" data-transition>bezier</span>
+        </div>
+      </article>
+      <article class="rotate">
+        <div class="head">
+          <h3>transform - rotate</h3>
+          <button onclick="toggleActive(event)">Active</button>
+        </div>
+        <div class="body">
+          <span class="ease" data-transition>ease</span>
+          <span class="ease-in" data-transition>ease-in</span>
+          <span class="ease-out" data-transition>ease-out</span>
+          <span class="cubic" data-transition>bezier</span>
+        </div>
+      </article>
+      <article class="scale">
+        <div class="head">
+          <h3>transform - scale</h3>
+          <button onclick="toggleActive(event)">Active</button>
+        </div>
+        <div class="body">
+          <span class="ease" data-transition>ease</span>
+          <span class="ease-in" data-transition>ease-in</span>
+          <span class="ease-out" data-transition>ease-out</span>
+          <span class="cubic" data-transition>bezier</span>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>
