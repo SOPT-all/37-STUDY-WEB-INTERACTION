@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+.svg_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  flex-wrap: wrap; /* 최대 너비를 넘치게 되면 아래로 떨어지는 구조 */
+  margin: 50px auto;
+}
+
+/* circle animation */
+@keyframes circleAnimation {
+  from { /* svg 요소에 직접 작성할 때는 여러 attributeName을 쓸 수 있지만, CSS에서는 한 번에 하나의 속성만 애니메이션 가능 */
+    r: 10;
+    cx: 20;
+  }
+  to {
+    r: 30;
+    cx: 60;
+  }
+}
+
+.animateCircle {
+  animation: circleAnimation 2s infinite alternate; /* alternate: 처음-끝-처음-끝 반복 */
+}
+
+/* rect animation */
+@keyframes rectAnimation {
+  from {
+    transform: rotate(0deg);
+    fill: red;
+  }
+  to {
+    transform: rotate(360deg);
+    fill: blue;
+  }
+}
+
+.animateRect {
+  transform-origin: center; /* 회전 중심을 rect의 중앙으로 */
+  animation: rectAnimation 2s infinite alternate-reverse ease-in; /* alternate-reverse: 홀수번쨰에는 normal, 짝수번째에는 reverse */
+}
+
+/* linear gradient */
+@keyframes startGradientAnimation {
+  0% {
+    stop-color: red;
+  }
+  50% {
+    stop-color: yellow;
+  }
+  100% {
+    stop-color: red;
+  }
+}
+
+@keyframes endGradientAnimation {
+  0% {
+    stop-color: blue;
+  }
+  50% {
+    stop-color: green;
+  }
+  100% {
+    stop-color: blue;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.8);
+  }
+}
+
+.start {
+  animation: startGradientAnimation 3s infinite;
+}
+
+.end {
+  animation: endGradientAnimation 3s infinite;
+}
+
+.gradient_polygon {
+  transform-origin: center;
+  transform-box: fill-box; /* transform이 fill 영역을 기준으로 작동하도록 설정 -- ale(50%- 10px) 과 같은 계산식을 안쓰고도 중심점을 쉽게 가운데로 옮길 수 있음 */
+  animation: rotate 2s infinite alternate cubic-bezier(0.63, 0.26, 0.21, 0.72); /* 속도 곡선 (가속도) 적용 */
+}
+
+/* mask animation */
+@keyframes maskAnimation {
+  0% {
+    r: 20;
+  }
+  50% {
+    r: 80;
+  }
+  100% {
+    r: 20;
+  }
+}
+
+.animateMask {
+  animation: maskAnimation 2s infinite;
+}
+
+/* path animation */
+@keyframes lineAnimation {
+  to {
+    stroke-dashoffset: 0; /* 선이 다 그려진 상태 */
+  }
+}
+
+.triangle {
+  width: 185px;
+  height: 165px;
+}
+
+.triangle path {
+  stroke-width: 2;
+  fill: transparent;
+  stroke: black;
+  stroke-dasharray: 542; /* 선의 실선 부분과 공백 부분의 길이 */
+  stroke-dashoffset: 542; /* 선의 시작 위치 */
+  /* dasharray와 dashoffset이 동일하면 애니메이션이 시작되지 않음 */
+  /* stroke-dashoffset 값을 542에서 0으로 변경하는 애니메이션 적용해야함 */
+  animation: lineAnimation 3s cubic-bezier(0.63, 0.26, 0.21, 0.22) forwards
+    infinite alternate;
+}
