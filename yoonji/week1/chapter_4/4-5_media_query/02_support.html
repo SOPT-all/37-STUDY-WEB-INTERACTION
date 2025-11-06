@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter4-5</title>
+  <link rel="stylesheet" href="02_support.css">
+</head>
+<body>
+  <main>
+    <section>
+      <div class="supports">
+        <h1 class="title">Supports</h1>
+        <!--크롬에서와 엣지에서 지원이 다를 경우 이미지 폴백(fallback)-->
+        <picture>
+          <source srcset="../../public/img/sample.avif" type="image/avif">
+          <img src="../../public/img/item_1.webp" alt="폴백 이미지">
+        </picture>
+        <!--webp 지원 여부에 따른 배경 폴백-->
+        <div class="webp"></div>
+        <!--크롬에서와 파이어폭스 지원이 다를 경우 폴백-->
+        <progress value="20" max="100">progress: 20%</progress>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
