@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+:root {
+  --duration: 800ms;
+  --delay: 300ms;
+  --bezier: cubic-bezier(0.25, 0.1, 0.27, 0.54);
+}
+
+main {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.container {
+  margin: 50px auto 0;
+  padding: 50px;
+  background-color: rgb(239, 216, 216);
+}
+
+.image_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  /* (이미지url) (반복없음) (좌우: 중앙(50%)) (상하: top) (크기는 cover)*/
+  background: url('undefined.jpeg') no-repeat 50% top / cover; 
+  border: 2px solid seashell;
+  /* hidden 처리 했다가 hover시 보이게 할 거임*/
+  overflow: hidden;
+  transition: background-position var(--duration);
+}
+
+/* 내부에 가상 요소 추가(content 속성 필수) */
+/* ::before은  요소 내용 앞쪽에 새 컨첸츠를 추가함 */
+.image_wrap::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  transform: translateY(100%); /* 처음엔 안보이게 */
+  transition: transform var(--duration); /* transition을 통해 애니메이션 효과 */
+  transition-timing-function: var(--bezier);
+}
+
+.image_wrap .texts {
+  position: relative;
+  z-index: 2;
+  padding: 50px 20px 50px 50px;
+  text-align: right;
+}
+
+.image_wrap .title {
+  display: block;
+  font-size: 30px;
+  color: aliceblue;
+  text-transform: uppercase; /* 대박. css에서도 대문자 변환이 되네*/
+  opacity: 0;
+  transition: opacity var(--duration);
+}
+
+.image_wrap .details {
+  margin-top: 20px;
+  font-size: 18px;
+  word-break: keep-all;
+  line-height: 1.4;
+  color: white;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--duration);
+  transition-delay: var(--delay);
+}
+
+/* hover */
+.image_wrap:hover {
+  /* 배경 이미지 위치 변경 */
+  background-position: 100% bottom;
+}
+
+.image_wrap:hover::before {
+  /* 가상 요소인 검은색 반투명 오버레이 위치 변경되도록 */
+  transform: translateY(0);
+}
+
+/* hover 시 text들 solid하게 변경 */
+.image_wrap:hover .title,
+.image_wrap:hover .details {
+  opacity: 1;
+}
+
+/* 알아야 할 것: hover 전 상태와 움직임(transition)은 기본에 작성하고, hover 시 변해야 하는 것만 :hover에 작성 */
