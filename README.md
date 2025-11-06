@@ -70,7 +70,7 @@
 ┣ 📂 chaeyoung
 ┃ ┣ 📂 week1
 ┃ ┗ 📂 week2 …
-┣ 📂 jooyoung
+┣ 📂 juyoung
 ┃ ┣ 📂 week1
 ┃ ┗ 📂 week2 …
 ┗ 📂 yunha
