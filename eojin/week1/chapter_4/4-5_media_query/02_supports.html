@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week1</title>
+    <link rel="stylesheet" href="02_supports.css" />
+  </head>
+  <body>
+    <main class="main">
+      <section class="supports">
+        <div class="supports">
+          <!-- chrome에서와 microsoft edge에서 지원이 다를 경우 img fallback -->
+          <picture>
+            <source srcset="../img/sample.avif" type="image/avif" />
+            <img
+              src="../img/swimming.jpg"
+              alt="에메랄드빛 투명한 바다에서 수영하는 사람"
+            />
+          </picture>
+          <!-- webp 지원 여부에 따른 background fallback -->
+          <div class="webp"></div>
+          <!-- chrome에서와 firefox 지원이 다를 경우 fallback -->
+          <progress value="20" max="100">progress : 20%</progress>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
