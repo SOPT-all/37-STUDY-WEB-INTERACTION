@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+main {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.heading_1 {
+  display: flex;
+  justify-content: center;
+}
+
+.svg_wrap {
+  display: flex;
+  justify-content: center;
+}

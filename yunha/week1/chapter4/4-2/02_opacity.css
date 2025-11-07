@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+:root {
+  --bg-color: #e8fff4;
+  --text-color: #3a31ee;
+  --border-color: #2ac0b3;
+  --duration: 2s;
+}
+
+@property --custom-opacity {
+  syntax: "<number>"; /* 어떤 값으로 받을지 명시 */
+  initial-value: 0; /* 초기값 */
+  inherits: false; /* 부모로부터 값 상속 받을지 말지 */
+}
+
+@property --custom-visibility {
+  syntax: "visible | hidden";
+  initial-value: hidden;
+  inherits: false;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+main {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.heading_1 {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 30px auto;
+  padding: 50px;
+  border: 3px solid var(--border-color);
+  color: var(--text-color);
+  transition: opacity var(--duration), visibility var(--duration);
+  opacity: var(--custom-opacity);
+  visibility: var(--custom-visibility);
+}
+
+.heading_1:hover + .container {
+  --custom-opacity: 1;
+  --custom-visibility: visible;
+}
+
+.container p {
+  padding: 15px 0;
+  line-height: 1.8;
+}
