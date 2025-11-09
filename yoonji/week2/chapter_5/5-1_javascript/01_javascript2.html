@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter5-1</title>
+  </head>
+  <body>
+    <main>
+      <!--case 2-->
+      <article class="contents">
+        <h3>Inline JavaScipt 사용하기</h3>
+        <p>
+          InLine Javascript는 HTML 요소 내에 직접 JavaScript를 작성하는
+          방법입니다. <br />
+          코드 양을 적게 작성할 수는 있는데, HTML과 JavaScript 코드가 혼재하여
+          가독성과 유지보수에 좋지 않습니다. <br />
+        </p>
+        <button type="button" onClick="onClickBtn()">클릭 !</button>
+      </article>
+    </main>
+  </body>
+  <script>
+    const onClickBtn = () => {
+      alert("click!");
+    }
+  </script>
+</html>
