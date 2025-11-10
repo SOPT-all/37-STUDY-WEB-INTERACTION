@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+
+section {
+  width: 100%;
+  max-width: 1024px;
+  margin: 50px auto 0;
+  padding: 50px;
+  text-align: center;
+  align-items: center3;
+  flex-direction: column;
+  border-radius: 8px;
+  line-height: 3;
+  background-color: skyblue;
+}
+
+ button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #c7c7c7;
+  transition: 2ms;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+h2 {
+  font-size: 2rem;
+}
+
+/* getElementsByClassName */
+[data-id="test_data"] {
+  background-color: gold;
+}
+
+/* getElementsByTagName */
+[data-id="test-color"] {
+  color: orange;
+}
+
+.test-color {
+  background-color: #cf72e2;
+}
+
+/* querySelector */
+#data-id {
+  background-color: yellow;
+}
+
+/* querySelectorAll */
+[data-query] {
+  color: red;
+}

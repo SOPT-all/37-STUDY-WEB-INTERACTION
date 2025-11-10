@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter5-3</title>
+    <link rel="stylesheet" href="01_dom.css" />
+    <script src="01_dom.js" defer></script>
+  </head>
+  <body>
+    <h1>DOM API</h1>
+    <section>
+      <h2>getElement</h2>
+      <!-- id - 스타일링 -->
+      <button type="button" id="example_id">document.getElementById</button>
+
+      <!-- class - 스타일링 & 새로운 속성 값을 설정-->
+      <div class="example_class">document.getElementsByClassName</div>
+      <span class="example_class">document.getElementsByClassName</span>
+
+      <!-- tagName - 스타일링 & 새로운 속성 값을 설정하고 클래스를 추가함 -->
+      <p>document.getElementsByTagName</p>
+      <p>document.getElementsByTagName</p>
+    </section>
+
+    <section>
+      <h2>querySelector</h2>
+      <!--querySelector 속성 값을 제거 -->
+      <button type="button" class="test-class">documnet.querySelector</button>
+
+      <!--querySelectorAll - 속성의 값을 가져와서 다른 속성 값을 변경 및 추가함 -->
+      <div data-id="test">document.querySelectorAll</div>
+      <span data-id="test">document.querySelectorAll</span>
+      <p data-id="test">document.querySelectorAll</p>
+    </section>
+  </body>
+</html>
