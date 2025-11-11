@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./01_dom.css" />
+    <title>01_dom</title>
+  </head>
+  <body>
+    <section>
+      <h2>getElement</h2>
+      <button type="button" id="example_id">document.getElementById</button>
+      <div class="example_class">document.getElementsByClassName</div>
+      <span class="example_class">document.getElementsByClassName</span>
+      <p>document.getElementsByTagName</p>
+      <p>document.getElementsByTagName</p>
+    </section>
+
+    <section>
+      <h2>querySelector</h2>
+      <button type="button" class="test_class">document.querySelector</button>
+      <div data-id="test">document.querySelectorAll</div>
+      <span data-id="test">document.querySelectorAll</span>
+      <p data-id="test">document.querySelectorAll</p>
+    </section>
+
+    <section class="node_manipulation">
+      <h2>노드 조작</h2>
+      <div class="create_element">노드 생성 후 추가</div>
+      <div class="appendchild">자식 노드 추가</div>
+      <div class="removechild">
+        자식 노드 삭제
+        <span>자식 노드</span>
+      </div>
+      <div class="remove_attribute" data-id="3">속성 제거</div>
+      <div class="create_textnode">텍스트 노드 생성</div>
+      <div class="clone_node">노드 복사해서 추가</div>
+    </section>
+
+    <section class="node_traversing">
+      <h2>다른 노드에 접근하기</h2>
+      <div class="parent">
+        parentNode
+        <div class="child">
+          childNode
+          <div id="child_child">childNode childNode</div>
+        </div>
+      </div>
+      <div class="next_prev">
+        <div class="prev">previousSibling/previousElementSibling</div>
+        <div class="current">current</div>
+        <div class="next">nextSibling/nextElementSibling</div>
+      </div>
+      <div class="first_last">
+        <div class="first">firstChild/firstElementChild</div>
+        <div class="middle">middle</div>
+        <div class="last">lastChild/lastElementChild</div>
+      </div>
+    </section>
+
+    <section class="node_text">
+      <h2>텍스트 노드를 조작</h2>
+      <div class="inner_text">
+        <div>
+          <span>innerText란 무엇인가?</span>
+        </div>
+      </div>
+      <div class="inner_html">
+        <div>
+          <span>innerHTML이란 무엇인가?</span>
+        </div>
+      </div>
+      <div class="text_content">
+        <div>
+          <span>textContent란 무엇인가?</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="position_width">
+      <h2 class="sr-only">요소의 위치와 크기를 구하는 메서드</h2>
+      <div class="position js-position">이 요소의 위치는?</div>
+      <div class="size js-size">이 요소의 크기는?</div>
+    </section>
+
+    <script src="./01_dom.js"></script>
+  </body>
+</html>
