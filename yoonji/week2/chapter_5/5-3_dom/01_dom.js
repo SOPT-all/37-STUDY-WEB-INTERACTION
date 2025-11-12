@@ -126,13 +126,13 @@ document.querySelector(".text_content div").textContent = contentsTextContent;
 // getBoundingClientRect() 메서드 사용
 const $positionWidth = document.querySelector(".position_width");
 const position_width = $positionWidth.getBoundingClientRect();
-// ▼▼▼ 수정 (변수 값 출력) ▼▼▼
+
 console.warn("position_width:", position_width);
 
 // offsetLeft, offsetTop, clientLeft, clientTop
 const $jsPosition = $positionWidth.querySelector('.js-position');
 const $temp = document.createElement('div');
-// ▼▼▼ 오류 수정 ▼▼▼ (템플릿 리터럴 중첩 오류, 오타(SjsPosition), innerHTML += 구조 수정)
+
 $temp.innerHTML = `
   <div>
     $jsPosition.offsetLeft: ${$jsPosition.offsetLeft},
