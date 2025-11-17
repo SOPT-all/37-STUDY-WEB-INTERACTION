@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter5-3</title>
+    <link rel="stylesheet" href="01_dom.css" />
+    <script src="01_dom.js" defer></script>
+  </head>
+  <body>
+    <h1>DOM API</h1>
+    <section>
+      <h2>getElement</h2>
+      <!-- id - 스타일링 -->
+      <button type="button" id="example_id">document.getElementById</button>
+
+      <!-- class - 스타일링 & 새로운 속성 값을 설정-->
+      <div class="example_class">document.getElementsByClassName</div>
+      <span class="example_class">document.getElementsByClassName</span>
+
+      <!-- tagName - 스타일링 & 새로운 속성 값을 설정하고 클래스를 추가함 -->
+      <p>document.getElementsByTagName</p>
+      <p>document.getElementsByTagName</p>
+    </section>
+
+    <section>
+      <h2>querySelector</h2>
+      <!--querySelector 속성 값을 제거 -->
+      <button type="button" class="test-class">documnet.querySelector</button>
+
+      <!--querySelectorAll - 속성의 값을 가져와서 다른 속성 값을 변경 및 추가함 -->
+      <div data-id="test">document.querySelectorAll</div>
+      <span data-id="test">document.querySelectorAll</span>
+      <p data-id="test">document.querySelectorAll</p>
+    </section>
+    <section class="node_manipulation">
+      <h2>노드 조작</h2>
+      <div class="create_element">노드 생성 후 추가</div>
+      <div class="appendchild">자식 노드 추가</div>
+      <div class="removechild">자식 노드 삭제
+        <span>자식 노드</span>
+      </div>
+      <div class="remove_attribute" data-id="3">속성 제거</div>
+      <div class="create_textnode">텍스트 노드 생성</div>
+      <div class="clone_node">노드 복사해서 추가</div>
+    </section>
+    <section class="node_traversing">
+      <h2>다른 노드에 접근하기</h2>
+      <!--부모 노드 접근하기-->
+      <div class="parent">부모 노드
+        <div class="child">자식 노드
+          <div id="child_child">자식 노드의 자식 노드</div>
+        </div>
+      </div>
+      <!--이전 노드 or 다음 노드 접근하기-->
+      <div class="next_prev">
+        <div class="prev">previousSibling/previousElementSibling</div>
+        <div class="current">현재 노드</div>
+        <div class="next">nextSibling/nextElementSibling</div>
+      </div>
+      <!--첫번째와 마지막 자식 노드 접근하기-->
+      <div class="first_last">
+        <div class="first">firstChild/firstElementChild</div>
+        <div class="middle">middle</div>
+        <div class="last">lastChild/lastElementChild</div>
+      </div>
+    </section>
+    <section class="node_text">
+      <h2>텍스트 노드를 조작하기</h2>
+      <!--InnerText-->
+      <div class="innerText">
+        <div>
+          <span>InnerText로 생성된 텍스트 노드입니다.</span>
+        </div>
+      </div>
+      <div class="inner_html">
+        <div>
+          <span>InnerHTML로 생성된 텍스트 노드입니다.</span>
+        </div>
+      </div>
+      <div class="text_content">
+        <div>
+          <span>createTextNode로 생성된 텍스트 노드입니다.</span>
+        </div>
+      </div>
+    </section>
+    <section class="position_width">
+      <h2 class="sr-only">요소의 위치와 크기를 구하는 메서드</h2>
+      <!--요소의 위치-->
+      <div class="position js-position">이 요소의 위치는?</div>
+      <!--요소의 크기-->
+      <div class="width js-size">이 요소의 크기는?</div>
+    </section>
+  </body>
+</html>
