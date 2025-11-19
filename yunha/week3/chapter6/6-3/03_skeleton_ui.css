@@ -1,0 +1,254 @@
+@charset "utf-8";
+
+:root {
+  --duration: 0.3s;
+  --showing-duration: 1s;
+  --spinner: 3rem;
+  --spinner-line-width: 0.3rem;
+}
+
+html {
+  font-size: 16px;
+}
+
+.card_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 0 1rem;
+}
+
+.card {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 22rem;
+  margin: 1rem;
+  transition: transform var(--duration) ease-out;
+  transform: transleateY(0) scale(1);
+  transition: transform var(--duration) ease-out;
+  position: relative;
+}
+
+.card a {
+  display: block;
+  box-shadow: 0 0 6.25rem -3.125rem rgba(0, 0, 0, 0.6);
+  opacity: 1;
+  /* transition:
+    transform var(--showing-duration) ease-out,
+    opacity var(--showing-duration),
+    box-shadow var(--showing-duration); */
+}
+
+.card.hidden a {
+  opacity: 0;
+  /* transform: translateY(-0.625rem) scale(1.05);
+  box-shadow: 0 0 3rem 3rem rgba(0, 0, 0, 0.4); */
+}
+
+.card picture {
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+.card picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card_desc {
+  min-height: 7.75rem;
+  padding: 1.875rem 1.25rem;
+  color: #333;
+}
+
+.card_desc strong {
+  display: block;
+  font-size: 1.25rem;
+}
+
+.card_desc span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-0.625rem) scale(1.05);
+  }
+  .card:hover a {
+    box-shadow: 0 0.8rem 2rem -1rem rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (max-width: 1024px) {
+  .card_list {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .card {
+    flex-basis: 22rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
+  .card_list {
+    flex-direction: column;
+    margin: 5rem auto;
+  }
+
+  .card {
+    flex-basis: auto;
+  }
+}
+
+.card ~ .card {
+  margin-top: 2rem;
+}
+
+/* spinner */
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--spinner);
+  height: var(--spinner);
+  margin-left: calc(var(--spinner) / 2 * -1);
+  margin-top: calc(var(--spinner) / 2 * -1);
+  border: var(--spinner-line-width) solid #f3f3f3;
+  border-left: var(--spinner-line-width) solid dodgerblue;
+  border-radius: 50%;
+  animation: spinner var(--showing-duration) infinite
+    cubic-bezier(0.37, 0.65, 0.19, 0.1);
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* SVG path loading UI */
+.svg_loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.svg_loader svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate 1.8s linear infinite;
+}
+
+.svg_loader circle {
+  fill: none;
+  stroke: #60a2e9;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 0;
+  animation: dash 1.56s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 300;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.svg_loader2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5rem;
+  height: 5rem;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* Skeleton UI */
+.skeleton {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+
+.skeleton .image {
+  aspect-ratio: 1 / 1;
+}
+
+.skeleton .title {
+  width: 60%;
+  height: 1.8rem;
+}
+
+.skeleton .description {
+  width: 100%;
+  height: 2.2rem;
+  margin-top: 0.5rem;
+}
+
+.skeleton .image,
+.skeleton .title,
+.skeleton .description {
+  position: relative;
+  overflow: hidden;
+  background-color: #e3e3e3;
+}
+
+.skeleton .image::before,
+.skeleton .title::before,
+.skeleton .description::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #f0f0f0 50%,
+    transparent 100%
+  );
+  animation: skeleton 1s infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
