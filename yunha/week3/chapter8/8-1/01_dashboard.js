@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   get$(".js-favorite").addEventListener("click", toggleFavorite);
   get$("body").style.visibility = "visible";
   setTheme(localStorage.getItem("theme"));
+  setSearch(window.location.search);
 });
 
 const viewChangeHandler = (event) => {
@@ -82,5 +83,21 @@ const getActiveFavorite = ([...$favorites]) => {
 const setActiveFavorite = ([...favorites]) => {
   [...getAll$(".js-favorite .list")].forEach((list, index) => {
     list.classList.toggle("active", favorites[index]);
+  });
+};
+
+const setSearch = (search) => {
+  const searchKeyword = new URLSearchParams(search).get("searchWords");
+
+  if (!searchKeyword) return;
+
+  get$("#search").value = searchKeyword;
+
+  [...getAll$(".js-viewContainer .list")].forEach(($element) => {
+    if ($element.querySelector(".title").textContent.includes(searchKeyword)) {
+      $element.style.display = "block";
+    } else {
+      $element.style.display = "none";
+    }
   });
 };
