@@ -1,7 +1,17 @@
 import { get$, getAll$ } from "../utils.js";
 
+const openCommunity = () => {
+  get$(".js-community").classList.add("active");
+};
+
+const closeCommunity = () => {
+  get$(".js-community").classList.remove("active");
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   get$(".js-viewChange").addEventListener("click", viewChangeHandler);
+  get$(".js-openCommunity").addEventListener("click", openCommunity);
+  get$(".js-closeCommunity").addEventListener("click", closeCommunity);
 });
 
 const viewChangeHandler = (event) => {

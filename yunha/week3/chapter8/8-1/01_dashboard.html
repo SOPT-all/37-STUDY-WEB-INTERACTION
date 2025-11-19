@@ -101,6 +101,22 @@
             <img src="../public/img/dalle/dalle_women_smile.webp" alt="" />
             <span class="name">Noel</span>
           </button>
+
+          <button
+            type="button"
+            class="svg_icon svg_bubble hover active js-openCommunity"
+          >
+            <svg viewBox="0 0 24 24" fill="none">
+              <title>커뮤니티 창 열기</title>
+              <path
+                d="M8 9.5H15M8 13.5H13M15.3 19.1L21 21L19.1 15.3C19.1 15.3 20 14 20 11.5C20 6.80558 16.1944 3 11.5 3C6.80558 3 3 6.80558 3 11.5C3 16.1944 6.80558 20 11.5 20C14.0847 20 15.3 19.1 15.3 19.1Z"
+                stroke="#000000"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </header>
       <!-- container -->
@@ -108,8 +124,21 @@
         <h2 class="sr-only">주요 내용</h2>
         <div class="main_content">
           <!-- comunity -->
-          <article class="article community">
+          <article class="article community js-community">
             <h3>커뮤니티</h3>
+            <button type="button" class="svg_icon svg_close js-closeCommunity">
+              <svg viewBox="0 0 24 24" fill="none">
+                <title>커뮤니티 창 닫기</title>
+                <path
+                  d="M16 8L8 16M8 8L16 16"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
             <ul class="board">
               <li class="list">
                 <span class="profile">
