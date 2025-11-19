@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   get$(".js-openCommunity").addEventListener("click", openCommunity);
   get$(".js-closeCommunity").addEventListener("click", closeCommunity);
   get$(".js-theme").addEventListener("click", themeChangeHandler);
+  get$(".js-favorite").addEventListener("click", toggleFavorite);
 });
 
 const viewChangeHandler = (event) => {
@@ -46,4 +47,11 @@ const setViewType = (viewType = "thumbnail") => {
   get$(".js-viewChange .active")?.classList.remove("active");
   get$(`.js-viewChange [data-type="${viewType}"]`).classList.add("active");
   get$(".js-viewType").dataset.type = viewType;
+};
+
+const toggleFavorite = (event) => {
+  if (!event.target.closest("button")) {
+    return;
+  }
+  event.target.closest(".list").classList.toggle("active");
 };

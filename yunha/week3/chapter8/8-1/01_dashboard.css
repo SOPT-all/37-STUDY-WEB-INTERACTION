@@ -278,6 +278,10 @@ header {
   border-top: 1px solid var(--border-color);
 }
 
+.board .list.active .svg_favorite path {
+  fill: var(--main-color);
+}
+
 .board .preview {
   margin-left: 1rem;
   width: 100%;
