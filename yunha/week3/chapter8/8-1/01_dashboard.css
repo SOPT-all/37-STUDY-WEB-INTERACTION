@@ -176,6 +176,35 @@ header {
   height: 2rem;
 }
 
+.dark:root {
+  --bg-color: #0b181d;
+  --main-color: #ffffff;
+  --second-color: rgba(255, 255, 255, 0.7);
+  --section-color: #162f35;
+  --card-color: #4d6165;
+
+  --progress-color: #172f35;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --icon-color: #ffffff;
+  --active-bg: #1f2f2f;
+}
+
+.svg_moon {
+  display: none;
+}
+
+.svg_sun {
+  display: block;
+}
+
+.dark .svg_moon {
+  display: block;
+}
+
+.dark .svg_sun {
+  display: none;
+}
+
 /* container */
 .container {
   width: 100%;
