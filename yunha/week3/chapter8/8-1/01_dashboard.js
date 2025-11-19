@@ -26,11 +26,17 @@ const closeCommunity = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  setViewType(localStorage.getItem("viewType"));
+
+  setActiveFavorite(JSON.parse(localStorage.getItem("favorites")));
+
   get$(".js-viewChange").addEventListener("click", viewChangeHandler);
   get$(".js-openCommunity").addEventListener("click", openCommunity);
   get$(".js-closeCommunity").addEventListener("click", closeCommunity);
   get$(".js-theme").addEventListener("click", themeChangeHandler);
   get$(".js-favorite").addEventListener("click", toggleFavorite);
+  get$("body").style.visibility = "visible";
+  setTheme(localStorage.getItem("theme"));
 });
 
 const viewChangeHandler = (event) => {
@@ -41,6 +47,7 @@ const viewChangeHandler = (event) => {
   }
 
   setViewType($target.dataset.type);
+  localStorage.setItem("viewType", $target.dataset.type); //로컬 저장
 };
 
 const setViewType = (viewType = "thumbnail") => {
@@ -54,4 +61,26 @@ const toggleFavorite = (event) => {
     return;
   }
   event.target.closest(".list").classList.toggle("active");
+};
+
+window.addEventListener("beforeunload", () => {
+  localStorage.setItem("viewType", get$(".js-viewType").dataset.type);
+  localStorage.setItem("theme", document.documentElement.getAttribute("class"));
+  localStorage.setItem(
+    "favorites",
+    getActiveFavorite([...getAll$(".js-favorite .list")])
+  );
+});
+
+const getActiveFavorite = ([...$favorites]) => {
+  const result = $favorites.map(($element) =>
+    $element.classList.contains("active")
+  );
+  return JSON.stringify(result);
+};
+
+const setActiveFavorite = ([...favorites]) => {
+  [...getAll$(".js-favorite .list")].forEach((list, index) => {
+    list.classList.toggle("active", favorites[index]);
+  });
 };

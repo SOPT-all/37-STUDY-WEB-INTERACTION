@@ -23,6 +23,7 @@ body {
   background: var(--bg-color);
   font-family: "Noto Sans KR", sans-serif;
   color: var(--main-color);
+  visibility: hidden;
 }
 
 button {
