@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03_skeleton_ui.html</title>
+    <link rel="stylesheet" href="../../public/reset.css" />
+    <link rel="stylesheet" href="03_skeleton_ui.css" />
+    <script src="03_skeleton_ui.js" defer></script>
+  </head>
+
+  <body>
+    <ul class="card_list">
+      <li class="card hidden">
+        <a
+          href="../../public/img/rainy1.webp"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <picture>
+            <source srcset="../../public/img/rainy1.webp" type="image/webp" />
+            <source srcset="../../public/img/rainy1.jpg" type="image/jpeg" />
+            <img
+              src="../../public/img/rainy1.jpg"
+              alt="비오는 유리창 너머 보이는 장미"
+            />
+          </picture>
+          <p class="card_desc">
+            <strong>Rainy Roses</strong>
+            <span>Roses seen softly through a rain-covered window.</span>
+          </p>
+        </a>
+      </li>
+      <li class="card hidden">
+        <a
+          href="../../public/img/rainy2.webp"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <picture>
+            <source srcset="../../public/img/rainy2.webp" type="image/webp" />
+            <source srcset="../../public/img/rainy2.jpg" type="image/jpeg" />
+            <img
+              src="../../public/img/rainy2.webp"
+              alt="비오는날 유리창 너머 보이는 건물"
+            />
+          </picture>
+          <p class="card_desc">
+            <strong>Rainy Cityscape</strong>
+            <span>A blurred urban view behind rainy glass.</span>
+          </p>
+        </a>
+      </li>
+      <li class="card hidden">
+        <a
+          href="../../public/img/rainy3.webp"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <picture>
+            <source srcset="../../public/img/rainy3.webp" type="image/webp" />
+            <source srcset="../../public/img/rainy3.jpg" type="image/jpeg" />
+            <img
+              src="../../public/img/rainy3.webp"
+              alt="비오는날 유리창에 그린 하트"
+            />
+          </picture>
+          <p class="card_desc">
+            <strong>Heart on Glass</strong>
+            <span>A hand-drawn heart on a rainy window.</span>
+          </p>
+        </a>
+      </li>
+      <li class="card hidden">
+        <a
+          href="../../public/img/sunset_beach.webp"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <picture>
+            <source
+              srcset="../../public/img/sunset_beach.webp"
+              type="image/webp"
+            />
+            <source
+              srcset="../../public/img/sunset_beach.jpg"
+              type="image/jpeg"
+            />
+            <img
+              src="../../public/img/sunset_beach.webp"
+              alt="야자수와 노을이 지는  해변의 풍경"
+            />
+          </picture>
+          <p class="card_desc">
+            <strong>Sunset Beach</strong>
+            <span>Palm trees silhouetted against a warm sunset.</span>
+          </p>
+        </a>
+      </li>
+    </ul>
+    <!-- Skeleton UI -->
+    <div class="card skeleton" style="display: none">
+      <div class="image"></div>
+      <div class="card_desc">
+        <strong class="title"></strong>
+        <span class="description"></span>
+      </div>
+    </div>
+  </body>
+</html>
