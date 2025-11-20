@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03_skeleton_ui.html</title>
+
+    <link rel="stylesheet" href="../public/css/reset.css" />
+    <link rel="stylesheet" href="../public/css/chapter_6/03_skeleton_ui.css" />
+    <script src="../public/js/chapter_6/03_skeleton_ui.js" defer></script>
+  </head>
+
+  <body>
+    <ul class="card_list">
+
+      <li class="card hidden">
+        <a href="../public/img/apple.jpeg" target="_blank" rel="noreferrer noopener">
+          <picture>
+            <img src="../public/img/apple.jpeg" alt="사과 이미지" />
+          </picture>
+          <p class="card_desc">
+            <strong>Apple</strong>
+            <span>사과는 맛있어</span>
+          </p>
+        </a>
+      </li>
+
+      <li class="card hidden">
+        <a href="../public/img/grape.jpeg" target="_blank" rel="noreferrer noopener">
+          <picture>
+            <img src="../public/img/grape.jpeg" alt="포도 이미지" />
+          </picture>
+          <p class="card_desc">
+            <strong>Grape</strong>
+            <span>포도포도포도포도포도</span>
+          </p>
+        </a>
+      </li>
+
+      <li class="card hidden">
+        <a href="../public/img/melon.jpeg" target="_blank" rel="noreferrer noopener">
+          <picture>
+            <img src="../public/img/melon.jpeg" alt="멜론 이미지" />
+          </picture>
+          <p class="card_desc">
+            <strong>Melon</strong>
+            <span>멜롱~</span>
+          </p>
+        </a>
+      </li>
+
+      <li class="card hidden">
+        <a href="../public/img/watermelon.jpeg" target="_blank" rel="noreferrer noopener">
+          <picture>
+            <img src="../public/img/watermelon.jpeg" alt="수박 이미지" />
+          </picture>
+          <p class="card_desc">
+            <strong>Watermelon</strong>
+            <span>수박수박수</span>
+          </p>
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="card skeleton" style="display: none">
+      <div class="image"></div>
+      <div class="card_desc">
+        <strong class="title"></strong>
+        <span class="description"></span>
+      </div>
+    </div>
+  </body>
+</html>
