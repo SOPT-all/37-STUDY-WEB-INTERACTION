@@ -26,7 +26,7 @@
   margin: 30px;
   background-size: cover;
   /* 폴백 (jpg로 덮어씀) */
-  background-image: url(../../public/img/item_5.jpg);
+  background-image: url(../../../public/img/item_5.jpg);
 }
 
 @supports (background-image: image-set(url("../../../img/item_1.webp") 1x)) {
