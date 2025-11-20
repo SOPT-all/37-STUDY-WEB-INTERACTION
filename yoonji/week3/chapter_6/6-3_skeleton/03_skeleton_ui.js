@@ -1,6 +1,6 @@
 "use strict";
 
-const DELAY = 1000 * 1;
+const DELAY = 1000 * 1.5;
 
 // 요소를 보여주도록 하는 함수
 const show = ($elem) => {
@@ -20,17 +20,16 @@ const showItems = ($elem, $loader, idx) => {
   }, DELAY * (idx + 1));
 };
 
-const initSpinner = ($elem, idx) => {
-  // 여러 개의 원이 순환하며 움직이고 크기가 변하는 효과!
-  const $spinner = document.querySelector(".svg_loader2").cloneNode(true);
-  
-  show($spinner);
-  $elem.appendChild($spinner);
-  showItems($elem, $spinner, idx);
+const initSkeleton = ($elem, idx) => {
+  // true를 추가하여 자식 요소까지 모두 복사
+  const $skeleton = document.querySelector('.skeleton').cloneNode(true);
+  show($skeleton);
+  $elem.appendChild($skeleton);
+  showItems($elem, $skeleton, idx);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  [...document.querySelectorAll(".card_list .card")].forEach(
-    ($element, index) => initSpinner($element, index)
+document.addEventListener('DOMContentLoaded', () => {
+  [...document.querySelectorAll('.card_list .card')].forEach(
+    ($element, index) => initSkeleton($element, index)
   );
 });
