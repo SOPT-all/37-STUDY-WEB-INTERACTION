@@ -5,16 +5,18 @@ import { OrbitControls, Environment } from "@react-three/drei";
 function Box(props) {
   const meshRef = useRef();
 
-  // 매 프레임마다 3D 박스를 회전
+  // useFrame: 프레임 변할 때마다 이벤트, 매 프레임마다 3D 박스를 회전
   useFrame((state, delta) => {
     meshRef.current.rotation.x += delta * 0.5;
     meshRef.current.rotation.y += delta * 0.5;
   });
 
   return (
+    // mesh: 무대!!
     <mesh {...props} ref={meshRef}>
+      {/* boxGeometry: 정육면체 지오메트리 생성 */}
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="skyblue" roughness={0.3} metalness={1.5} />
+      <meshStandardMaterial color="skyblue" roughness={1} metalness={1.5}/>
     </mesh>
   );
 }
@@ -39,6 +41,7 @@ export default function App() {
   return (
     <Canvas>
       <Scene />
+      {/* OrbitControls: 카메라 컨트롤 기능, 사용자가 3d 장면을 직관적으로 탐색하여 카메라가 중심점 주위를 돌게 해줌, 확대, 축소, 이동 사용할 수 있게! */}
       <OrbitControls />
       <Environment preset="sunset" background />
     </Canvas>
