@@ -126,8 +126,9 @@ export const Donut: React.FC<IDonut> = ({ url, isMobile }) => {
         (rotationRef.current.z - groupRef.current.rotation.z) * 0.05;
     }
 
+    // 회전 애니메이션(뒤 숫자: 회전 속도)
     if (meshRef.current) {
-      meshRef.current.rotation.y += delta * 0.3;
+      meshRef.current.rotation.y += delta * 0.7;
     }
   });
 
