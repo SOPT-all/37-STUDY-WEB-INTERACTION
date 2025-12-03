@@ -1,49 +1,31 @@
-import { useRef, useEffect, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useRef, useEffect } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+//GSAP ScrollTrigger 플러그인 등록
+gsap.registerPlugin(ScrollTrigger);
 
 // Box 컴포넌트
 const Box = () => {
   // 3D 메시에 대한 참조 생성
   const meshRef = useRef();
 
-  const [targetRotation, setTargetRotation] = useState({ x: 0, y: 0 });
-  const currentRotationRef = useRef({ x: 0, y: 0 });
-
   // 컴포넌트가 마운트된 후 애니메이션 설정
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = window.scrollY / scrollHeight;
-      setTargetRotation({
-        x: progress * Math.PI * 2,
-        y: progress * Math.PI * 2,
-      });
-    };
-
-    // 스크롤 이벤트 리스너 등록
-    window.addEventListener("scroll", handleScroll);
-
-    // 클린업 함수로 이벤트 리스너 제거
-    return () => window.removeEventListener("scroll", handleScroll);
+    // GSAP를 사용하여 메시의 회전 애니메이션을 정의(코드 훨씬 간단)
+    gsap.to(meshRef.current.rotation, {
+      x: Math.PI * 2, // X축으로 360도 회전
+      y: Math.PI * 2, // Y축으로 360도 회전
+      scrollTrigger: {
+        trigger: "#wrap", // 스크롤 트리거 요소
+        start: "top top", // 애니메이션 시작 지점
+        end: "bottom bottom", // 애니메이션 종료 지점
+        scrub: 1, // 부드러운 스크롤 효과
+      },
+    });
   }, []);
-
-  useFrame(() => {
-    if (meshRef.current) {
-      // 현재 회전 값을 목표로 회전 값으로 부드럽게 보간
-      currentRotationRef.current.x +=
-        (targetRotation.x - currentRotationRef.current.x) * 0.1;
-      currentRotationRef.current.y +=
-        (targetRotation.y - currentRotationRef.current.y) * 0.1;
-
-      // 메시의 회전 값 업데이트
-      meshRef.current.rotation.x =
-        (currentRotationRef.current.x / (Math.PI * 2)) * Math.PI * 2;
-      meshRef.current.rotation.y =
-        (currentRotationRef.current.y / (Math.PI * 2)) * Math.PI * 2;
-    }
-  });
 
   return (
     <mesh ref={meshRef} castShadow receiveShadow>
@@ -89,7 +71,9 @@ export default function App() {
       >
         <Scene />
       </Canvas>
+      {/* 스크롤 영역 */}
       <div
+        // 스크롤 트리거 요소
         id="wrap"
         style={{ position: "relative", width: "100%", height: "500vh" }}
       >

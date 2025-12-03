@@ -5,7 +5,7 @@ import { OrbitControls, Environment } from "@react-three/drei";
 function Box(props) {
   const meshRef = useRef();
 
-  // useFrame: 프레임 변할 때마다 이벤트, 매 프레임마다 3D 박스를 회전
+  // useFrame: Three.js 컨텍스트의 상태 가져올 수 있음
   useFrame((state, delta) => {
     meshRef.current.rotation.x += delta * 0.5;
     meshRef.current.rotation.y += delta * 0.5;
