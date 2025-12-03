@@ -44,10 +44,14 @@ html {
 }
 
 body {
+  opacity: 0;
+  transition: opacity 0.5s;
+
   text-rendering: optimizeLegibility;
   font-family: var(--font-family-Noto, sans-serif);
   font-size: var(--font-size, 1rem);
   line-height: var(--line-height, 1.4);
+  background-color: var(--color-background, white);
 }
 
 /* 헤더 고정 및 스타일 설정 */
@@ -77,11 +81,13 @@ header {
 
   & .navigation ul {
     display: flex;
-  }
-
-  & li a {
-    padding: 0 1rem;
-    color: var(--color-black);
+    & li a {
+      padding: 0 1rem;
+      color: var(--color-highlight);
+    }
+    &.active {
+      color: var(--color-black);
+    }
   }
 }
 
@@ -113,6 +119,19 @@ main .section {
     padding: 0 1rem;
     font-size: 1.6rem;
     font-family: var(--font-family-Dancing);
+    color: var(--color-highlight);
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(-1rem, 0, 0);
+    transition:
+      0.5s opacity 0.5s,
+      0.5s transform 0.5s;
+    .active & {
+      visibility: visible;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   & .text_wrap {
@@ -125,26 +144,33 @@ main .section {
       shape-margin: 0.2rem;
       padding: 0 3%;
       #flower & {
-        shape-outside: url(../../img/pixabay/flower.png);
+        shape-outside: url(../public/img/pixabay/flower.png);
       }
       #bluebird & {
-        shape-outside: url(../../img/pixabay/bluebird.png);
+        shape-outside: url(../public/img/pixabay/bluebird.png);
       }
       #heart & {
-        shape-outside: url(../../img/pixabay/heart.png);
+        shape-outside: url(../public/img/pixabay/heart.png);
       }
       #banana & {
-        shape-outside: url(../../img/pixabay/banana.png);
+        shape-outside: url(../public/img/pixabay/banana.png);
       }
       #orange & {
         max-width: 480px;
-        shape-outside: url(../../img/pixabay/orange.png);
+        shape-outside: url(../public/img/pixabay/orange.png);
       }
     }
     & .text {
       margin-top: 7rem;
       font-size: var(--font-size-big);
       color: var(--color-highlight);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s 0.5s;
+      .active & {
+        opacity: 0.5;
+        visibility: visible;
+      }
     }
   }
 }
@@ -170,5 +196,82 @@ main .section {
     filter: blur(1rem);
     transform: scale(2);
     opacity: 0;
+  }
+}
+
+@media (max-width: 1280px) {
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 3%;
+  }
+
+  & .title {
+    padding: 0;
+    padding-bottom: 2rem;
+    text-align: center;
+    transform: translate3d(0, -1rem, 0);
+  }
+
+  & .text_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & img {
+      float: none;
+      max-width: 50dvw;
+      max-height: calc(100dvh - 24rem);
+      #orange & {
+        max-width: 50dvw;
+      }
+    }
+    & .text {
+      text-align: center;
+      margin-top: 2rem;
+      .banana & {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+
+  .content {
+    & .text_wrap {
+      & .text {
+        max-width: 60dvw;
+        font-size: 1.2rem;
+        & br {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  header {
+    & .header_contents {
+      justify-content: center;
+    }
+
+    & .logo {
+      display: none;
+    }
+  }
+}
+
+/* scroll() 기능을 지원하지 않는 브라우저에 대한 대체 스타일 */
+@supports not (animation-timeline: scroll()) {
+  .navigation {
+    display: none; /* 네비게이션 숨기기 */
+  }
+
+  .content {
+    position: relative;
   }
 }
