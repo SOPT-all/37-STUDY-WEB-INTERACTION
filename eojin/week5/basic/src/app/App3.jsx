@@ -25,7 +25,7 @@ const Donut = ({ url }) => {
       },
     });
   }, []);
-  return <primitive object={scene} ref={meshRef} scale={10} />;
+  return <primitive object={scene} ref={meshRef} scale={1} />;
 };
 
 // 3D 씬을 설정하는 컴포넌트
