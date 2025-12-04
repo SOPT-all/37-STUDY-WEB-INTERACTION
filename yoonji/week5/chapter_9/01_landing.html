@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page - Nature and Art Discovery</title>
+    <!-- 검색 결과의 제목 표시 아래에 사이트에 대한 설명을 나타냄 -->
+    <meta
+      name="description"
+      content="Discover nature and art on the landing page~"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../public/styles/reset.css" />
+    <link rel="stylesheet" href="../../public/styles/common.css" />
+    <link rel="stylesheet" href="./01_landing.css" />
+    <!-- type=module이 defer 속성을 포함함 -->
+    <script type="module" src="./01_landing.js"></script>
+  </head>
+  <body>
+    <!--header-->
+    <header>
+      <div class="header_contents">
+        <h1 class="logo"><a href="#flower">Landing Page</a></h1>
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#flower" title="Go to flower section">Flower</a></li>
+          <li>
+            <a href="#bluebird" title="Go to bluebird section">Bluebird</a>
+          </li>
+          <li><a href="#heart" title="Go to heart section">Heart</a></li>
+          <li><a href="#banana" title="Go to banana section">Banana</a></li>
+          <li><a href="#orange" title="Go to orange section">Orange</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2 class="sr-only">Main Contents</h2>
+      <div class="container">
+        <!--flower-->
+        <section id="flower" class="section">
+          <div class="content">
+            <h3 class="title">
+              In the quiet garden, <br />
+              a flower has bloomed
+            </h3>
+            <div class="text_wrap">
+              <img src="./img/purpleflower.png" alt="피어나는 꽃" />
+              <p class="text">
+                Velvet-like purple petals sparkle in the sunlight. <br />
+                Blooming at dawn, <br />
+                this flower brings the peace of night to the quiet garden.
+                <br />
+              </p>
+            </div>
+          </div>
+        </section>
+        <!--bluebird-->
+        <section id="bluebird" class="section">
+          <div class="content">
+            <h3 class="title">
+              Flying in the blue sky, <br />
+              Bluebird
+            </h3>
+            <div class="text_wrap">
+              <img src="./img/bluebird.png" alt="파랑새 이미지" />
+              <p class="text">
+                Blue feathers sparkle in the sunlight. <br />
+                Flying freely in the sky, <br />
+                singing the beauty of the world. <br />
+              </p>
+            </div>
+          </div>
+        </section>
+        <!--heart-->
+        <section id="heart" class="section">
+          <div class="content">
+            <h3 class="title">
+              Filled with warmth, <br />
+              Heart
+            </h3>
+            <div class="text_wrap">
+              <img src="./img/heart.png" alt="하트 모양 이미지" />
+              <p class="text">
+                The heart shape, symbolizing love and friendship, <br />
+                conveys warm feelings. <br />
+                Feelings for each other grow deeper. <br />
+              </p>
+            </div>
+          </div>
+        </section>
+        <!--banana-->
+        <section id="banana" class="section">
+          <div class="content">
+            <h3 class="title">
+              With a sweet taste, <br />
+              Banana
+            </h3>
+            <div class="text_wrap">
+              <img src="./img/banana.png" alt="바나나 이미지" />
+              <p class="text">
+                The sweet banana inside the yellow peel <br />
+                recharges your energy. <br />
+                It is a fruit loved as a healthy snack. <br />
+              </p>
+            </div>
+          </div>
+        </section>
+        <!--orange-->
+        <section id="orange" class="section">
+          <div class="content">
+            <h3 class="title">
+              With a refreshing scent, <br />
+              Orange
+            </h3>
+            <div class="text_wrap">
+              <img src="./img/orange.png" alt="오렌지 이미지" />
+              <p class="text">
+                The bright orange peel gives off a refreshing scent. <br />
+                Rich in Vitamin C, it is good for health, <br />
+                and the fresh juice refreshes your mouth. <br />
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

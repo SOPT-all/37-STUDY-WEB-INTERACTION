@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter5-1</title>
+    <script src="01_javascript3.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <!--case 1-->
+      <article class="contents">
+        <h3>Inline JavaScipt 사용하기</h3>
+        <p>
+          InLine Javascript는 HTML 요소 내에 직접 JavaScript를 작성하는
+          방법입니다. <br />
+          코드 양을 적게 작성할 수는 있는데, HTML과 JavaScript 코드가 혼재하여
+          가독성과 유지보수에 좋지 않습니다. <br />
+        </p>
+        <button type="button" onClick="alert('클릭했네요!')">클릭</button>
+      </article>
+      <!--case 2: 가독성 별로-->
+      <article class="contents">
+        <h3>Internal JavaScipt 사용하기</h3>
+        <p>
+          Internal JavaScript는 HTML 파일 내부에서 script 요소를 사용해서
+          JavaScript 코드를 작성하는 방법입니다. <br />
+          head 요소 또는 body 요소 내부에 위치할 수 있지만, 주로 HTML DOM Tree가
+          생성되고 난 후에 적용되게 하기 위해서 body 요소 닫기 직전에 작성하게
+          됩니다. <br />
+          이 방법도 유지보수와 가독성에 취약하므로 주의가 필요합니다.
+        </p>
+        <button type="button" onClick="onClickBtn()">클릭 !</button>
+      </article>
+      <!--case 3-->
+      <article class="contents">
+        <h3>External JavaScipt 사용하기</h3>
+        <p>
+          External Javascript는 Javascript 코드를 작성하고 HTML 파일에서 이를
+          로드해서 사용하는데, 가장 권장되는 방법이며, 코드의 재사용성과
+          유지보수가 용이합니다.
+        </p>
+        <button type="button" class="clickBtn">클릭 !</button>
+      </article>
+    </main>
+  </body>
+  <script>
+    const onClickBtn = () => {
+      alert("onClickBtn 클래스 선택자를 사용해서 내부 스크립트로 클릭했네요!");
+    };
+  </script>
+</html>

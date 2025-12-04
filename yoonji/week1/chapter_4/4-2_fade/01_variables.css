@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+:root {
+  --bg-color: #e8fff4;
+  --text-color: #3a31ee;
+  --border-color: #2ac0b3;
+  --duration: 2s;
+}
+
+@property --custom-opacity {
+  /* property: 사용자 정의 CSS 속성 선언 - 속성의 특성을 보다 명확하고 강력하게 정의할 수 있음! */
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --custom-visible {
+  syntax: "visible | hidden";
+  initial-value: hidden;
+  inherits: false;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color2, black); /* 폴백(기본값): black */
+}
+
+.heading_1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 30px auto;
+  padding: 50px;
+  border: 3px solid var(--border-color);
+  color: var(--text-color);
+  transition:
+    opacity var(--duration),
+    visibility var(--duration);
+  opacity: var(--custom-opacity);
+  visibility: var(--custom-visible);
+}
+
+.container p {
+  padding: 15px 0;
+  line-height: 1.8;
+  color: var(--text-color2, red); /* 폴백(기본값): red */
+}
+
+.heading_1:hover + .container {
+  --custom-opacity: 1;
+  --custom-visible: visible;
+}

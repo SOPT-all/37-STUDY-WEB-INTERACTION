@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+.title {
+  text-align: center;
+}
+
+.main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.supports {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 30px;
+  background-color: rgb(175, 232, 255);
+}
+
+/* webp */
+.webp {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+  background-size: cover;
+  /* 폴백 (jpg로 덮어씀) */
+  background-image: url(../../../public/img/item_5.jpg);
+}
+
+@supports (background-image: image-set(url("../../../img/item_1.webp") 1x)) {
+  .webp {
+    background-image: image-set(url("../../../img/item_1.webp") 1x);
+  }
+}
+
+/* progress -webkit-, -moz- */
+progress {
+  width: 300px;
+  height: 10px;
+}
+
+/*-webkit-appearance: 엣지, 크롬 등*/
+@supports (-webkit-appearance: progress-bar) {
+  ::-webkit-progress-bar {
+    background-color: red;
+  }
+
+  ::-webkit-progress-value {
+    background-color: blue;
+  }
+}
+
+/* -moz-appearance: 파이어폭스 */
+@supports (-moz-appearance: progress-bar) {
+  progress {
+    background-color: black;
+  }
+}
