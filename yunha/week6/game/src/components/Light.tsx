@@ -24,7 +24,7 @@ const Light = () => {
 
   return (
     <>
-      {/* 환경광 전체적인 기본 조명 제공 */}
+      {/* 환경광 전체적인 기본 조명 */}
       <ambientLight intensity={0.6} />
 
       {/* 방향광 주요 조명과 그림자 생성 */}
@@ -33,6 +33,14 @@ const Light = () => {
         position={[50, 50, -25]}
         intensity={1}
         castShadow
+        shadow-mapSize-width={4096}
+        shadow-mapSize-height={4096}
+        shadow-camera-far={200}
+        shadow-camera-left={-100}
+        shadow-camera-right={100}
+        shadow-camera-top={100}
+        shadow-camera-bottom={-100}
+        shadow-bias={-0.0001}
       />
     </>
   );
