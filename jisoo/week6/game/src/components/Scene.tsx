@@ -5,10 +5,14 @@ import Floor from "./Floor";
 import Light from "./Light";
 import CameraController from "./CameraController";
 import { OrbitControls, OrthographicCamera } from "@react-three/drei";
-import { useThree, ThreeEvent } from "@react-three/fiber";
+import { useThree, type ThreeEvent } from "@react-three/fiber";
+import Spot from "./Spot";
+import Ball from "./Ball";
 
 const PLAYER_INITIAL_Y = 0.3;
 const CLICK_DELAY = 200;
+const SPOT_POSITION = { x: 0, y: 0.01, z: 2 };
+const BALL_VISIBILITY_THRESHOLD = 1.5;
 
 const Scene: React.FC = () => {
   const floorRef = useRef<THREE.Mesh>(null);
@@ -20,6 +24,7 @@ const Scene: React.FC = () => {
     new THREE.Vector3(0, PLAYER_INITIAL_Y, 0)
   );
   const [isDragging, setIsDragging] = useState(false);
+  const [isBallVisible, setIsBallVisible] = useState(false);
 
   const clickTimeout = useRef<number | null>(null);
 
@@ -59,10 +64,7 @@ const Scene: React.FC = () => {
     }
   };
 
-  /**
-   * 포인터 업 이벤트 핸들러
-   * 클릭 또는 드래그 종료를 처리합니다.
-   */
+  // 포인터 업 이벤트 핸들러
   const handlePointerUp = (event: ThreeEvent<PointerEvent>) => {
     if (clickTimeout.current) {
       clearTimeout(clickTimeout.current);
@@ -88,6 +90,12 @@ const Scene: React.FC = () => {
         onPointerLeave={handlePointerLeave}
       >
         <Light />
+        <Spot position={SPOT_POSITION} />
+        <Ball
+          modelSrc="/ball.glb"
+          position={SPOT_POSITION}
+          visible={isBallVisible}
+        />
         <OrthographicCamera makeDefault />
         <Floor ref={floorRef} textureUrl="/grass.png" />
         <OrbitControls /> {/* 카메라 컨트롤러 */}
@@ -96,6 +104,15 @@ const Scene: React.FC = () => {
           targetPosition={playerTargetPosition}
           onPositionUpdate={(position) => {
             setPlayerPosition(position);
+            // 플레이어가 특정 위치에 가까워지면 공을 보이게 함
+            const distanceToBall = position.distanceTo(
+              new THREE.Vector3(
+                SPOT_POSITION.x,
+                SPOT_POSITION.y,
+                SPOT_POSITION.z
+              )
+            );
+            setIsBallVisible(distanceToBall < BALL_VISIBILITY_THRESHOLD);
           }}
         />
         <CameraController playerPosition={playerPosition} />

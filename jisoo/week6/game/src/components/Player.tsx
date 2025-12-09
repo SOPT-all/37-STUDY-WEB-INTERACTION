@@ -3,11 +3,8 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { setAngle } from "../utils/utils";
-
-enum AnimationState {
-  IDLE = 0,
-  WALK = 1,
-}
+import usePlayerJump from "../hooks/usePlayerJump";
+import { AnimationState } from "../types/type";
 
 interface IPlayerProps {
   modelSrc: string;
@@ -22,7 +19,7 @@ const Player: React.FC<IPlayerProps> = ({
   targetPosition,
   onPositionUpdate,
   movementSpeed = 3,
-  rotationSpeed = 20,
+  rotationSpeed = 10,
 }) => {
   const { scene, animations } = useGLTF(modelSrc);
 
@@ -38,6 +35,8 @@ const Player: React.FC<IPlayerProps> = ({
   const currentPosition = useRef(new THREE.Vector3(0, 0, 0));
 
   const { camera } = useThree();
+
+  const { isJumping, jumpHook } = usePlayerJump();
 
   // 3D 모델 설정
   const setupModel = useCallback((model: THREE.Object3D) => {
@@ -63,6 +62,10 @@ const Player: React.FC<IPlayerProps> = ({
     }
   }, [animations]);
 
+  const jump = useCallback(() => {
+    jumpHook(modelRef, actions, currentAnimation);
+  }, [actions, currentAnimation, jumpHook]);
+
   // 목표 위치에 따라 플레이어 위치 업데이트
   const updatePosition = useCallback(
     (delta: number) => {
@@ -73,7 +76,9 @@ const Player: React.FC<IPlayerProps> = ({
           .clone()
           .sub(currentPosition.current)
           .normalize();
-        const movement = direction.multiplyScalar(movementSpeed * delta);
+        const movement = direction.multiplyScalar(
+          movementSpeed * delta * (isJumping ? 0.7 : 1)
+        );
         currentPosition.current.add(movement);
         modelRef.current!.position.x = currentPosition.current.x;
         modelRef.current!.position.z = currentPosition.current.z;
@@ -87,7 +92,7 @@ const Player: React.FC<IPlayerProps> = ({
         );
       }
     },
-    [targetPosition, movementSpeed, rotationSpeed]
+    [targetPosition, movementSpeed, rotationSpeed, isJumping]
   );
 
   // 플레이어의 상태에 따라 현재 애니메이션 업데이트
@@ -105,6 +110,9 @@ const Player: React.FC<IPlayerProps> = ({
     let nextAnimationState: AnimationState;
 
     switch (true) {
+      case isJumping:
+        nextAnimationState = AnimationState.JUMP;
+        break;
       case isMoving:
         nextAnimationState = AnimationState.WALK;
         break;
@@ -113,9 +121,9 @@ const Player: React.FC<IPlayerProps> = ({
     }
 
     setAnimationState(nextAnimationState);
-  }, [targetPosition, currentAnimation, actions]);
+  }, [isJumping, targetPosition, currentAnimation, actions]);
 
-  // 플레이어를 따라 카메라 위치 업데이트
+  // 플레이어 따라 카메라 위치 업데이트
   const updateCameraPosition = (
     camera: THREE.Camera,
     playerPosition: THREE.Vector3
@@ -124,6 +132,17 @@ const Player: React.FC<IPlayerProps> = ({
     camera.position.z = playerPosition.z + 5;
     camera.lookAt(playerPosition);
   };
+  // 점프 액션 이벤트 리스너
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.code === "Enter") {
+        jump();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [jump]);
 
   useEffect(() => {
     if (modelRef.current) {
