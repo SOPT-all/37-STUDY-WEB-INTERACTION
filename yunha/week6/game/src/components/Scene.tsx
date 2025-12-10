@@ -1,11 +1,12 @@
-import Player from "./Player";
-import Light from "./Light";
 import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import * as THREE from "three";
+import Player from "./Player";
+import Light from "./Light";
 import Floor from "./Floor";
 import CameraController from "./CameraController";
 import Ball from "./Ball";
+import Spot from "./Spot";
 import { OrthographicCamera } from "@react-three/drei";
 import { useThree, type ThreeEvent } from "@react-three/fiber";
 
@@ -91,6 +92,8 @@ const Scene = () => {
         <Light />
         <OrthographicCamera makeDefault />
         <OrbitControls />
+        <Floor ref={floorRef} textureUrl="/grass.png" />
+        <Spot position={SPOT_POSITION} />
         <Player
           modelSrc="/manman.glb"
           targetPosition={playerTargetPosition}
@@ -106,7 +109,6 @@ const Scene = () => {
             setIsBallVisible(distanceToBall < BALL_VISIBILITY_THRESHOLD);
           }}
         />
-        <Floor ref={floorRef} textureUrl="/grass.png" />
         <Ball
           modelSrc="/ball.glb"
           position={SPOT_POSITION}

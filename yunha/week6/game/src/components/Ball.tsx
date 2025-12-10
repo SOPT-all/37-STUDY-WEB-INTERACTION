@@ -19,7 +19,7 @@ interface IPosition {
 const Ball = ({ modelSrc, position, visible }: IBallProps) => {
   const { x, y, z } = position;
   const { scene: threeScene } = useThree();
-  const modelRef = useRef<THREE.Object3D | null>(null);
+  const modelRef = useRef<THREE.Object3D>();
   const { scene } = useGLTF(modelSrc);
   useEffect(() => {
     if (scene.children[0]) {
