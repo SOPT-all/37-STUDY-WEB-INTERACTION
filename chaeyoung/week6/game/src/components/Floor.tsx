@@ -19,7 +19,7 @@ const Floor = forwardRef<THREE.Mesh, IFloorProps>(({ textureUrl }, ref) => {
 
   return (
     <mesh
-      // 부모에게 받은 ref 전달 
+      // 부모에게 받은 ref 전달
       ref={ref}
       rotation-x={-Math.PI / 2}
       receiveShadow
