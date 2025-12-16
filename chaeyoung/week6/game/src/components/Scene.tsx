@@ -119,7 +119,7 @@ const Scene = () => {
           }}
         />
         <Ball
-          modelSrc="/ball.glb"
+          modelSrc="/donut.glb"
           position={SPOT_POSITION}
           visible={isBallVisible}
         />
